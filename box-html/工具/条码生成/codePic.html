@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引用外部插件 -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script> 
+		<script type="text/javascript" src="//static.runoob.com/assets/qrcode/qrcode.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	</head>
+	<body>
+		<!-- 条形码生成 -->
+		<div class="textCode">
+			<h3>条码在线生成</h3>
+			<div class="textCodeBox">
+				<input type="text" placeholder="输入数字或字母" id="textCode" value=""></input>
+				<button onclick="mkCode()">生成条形码</button>
+				<svg id="svgcode"></svg> 
+			</div>
+			<h3>二维码生成</h3>
+			<div class="textCodeBox">
+				<input type="text" placeholder="输入数字或字母" id="textCode2" value=""></input>
+				<button onclick="mkCode2()">二维码生成</button>
+				<div id="qrcode"></canvas>
+			</div>
+		</div>
+		 
+	</body>
+	<script>
+		// 初始化函数
+		const textCode = "1354641";
+		
+		this.init();
+		function init() {
+			var qrcode = new QRCode($("#qrcode"),{
+				width : 100,
+			    height : 100
+			});
+			// $("#svgcode").JsBarcode('Hi!');//or JsBarcode("#svgcode", "Hi!");  
+			// this.creatCode(textCode);
+		};
+		function mkCode(){
+			const demp = $("#textCode").val();
+			console.log("demp",demp);
+			if(demp == ""){
+				
+				return alert("请输入内容!");
+			}else{
+				this.creatCode(demp)
+			}
+		};
+		function mkCode2(){
+			const demp = $("#textCode2").val();
+			if(demp == ""){
+				return alert("请输入内容!");
+			}else{
+				this.creatQrcode(demp)
+			}
+		};
+		//二维码生成
+		function creatQrcode(str){
+			$("#qrcode").qrcode({
+								render: "canvas",
+								text: "this plugin is great",
+								width: 150, //二维码的宽度
+								height: 150,
+								background: "#ffffff", //二维码的后景色
+								foreground: "#000000", //二维码的前景色
+								// src: "this plugin is great",
+								// imgWidth: logoSize,
+								// imgHeight: logoSize
+							}); 
+			// $('#qrcode').qrcode("this plugin is great")
+		};
+		
+
+		//条形码
+		function creatCode(str){
+			JsBarcode("#svgcode", str);
+		};
+	</script>
+	<style>
+		.textCode{
+			width: 80%;
+			margin: auto;
+		}
+		.textCodeBox{
+		   width: 40%;
+			margin: 10px auto;
+		}
+		#svgcode{
+			display: flex;
+		}
+	</style>
+</html>

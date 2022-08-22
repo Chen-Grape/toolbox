@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>画画css 样式联系</title>
+	</head>
+	<body>
+		<span>通过盒子上下左右都含有border 边 进行操作边框</span>
+		<div class="demo-01">
+			<div class="box"></div>
+			<code> .box{
+			   width: 0px;
+			   height: 0px;
+			   border: 100px solid rgb(0, 255, 170);
+		     }</code>
+		</div>
+		<div class="demo-02">
+			<div class="box-02"></div>
+			<code>  
+			  .box-02{
+				  width: 0;
+				  height: 0;
+				  border-top: 100px solid red;
+				  border-right: 100px solid yellow;
+				  border-bottom: 100px solid blue;
+				  border-left: 100px solid green;
+			  }
+			  </code>
+		</div>
+		<div class="demo-03">
+			<div class="box-03"></div>
+			<code>  
+			 .box-03{
+				 width: 0;
+				 height: 0;
+				 border: 100px solid transparent;
+				 border-right-color: red;
+			 }
+			 }</code>
+		</div>
+	</body>
+	<style>
+		  code { 
+				background-color: #ccc; 
+				color: green;
+				font-size: 18px;
+			 }
+		 .box{
+			   width: 0px;
+			   height: 0px;
+			   border: 100px solid rgb(0, 255, 170);
+		     }
+		 .box-02{
+			  width: 0;
+			  height: 0;
+			  border-top: 100px solid red;
+			  border-right: 100px solid yellow;
+			  border-bottom: 100px solid blue;
+			  border-left: 100px solid green;
+		 }
+		 .box-03{
+			 width: 0;
+			 height: 0;
+			 border: 100px solid transparent;
+			 border-right-color: red;
+		 }
+	</style>
+</html>
